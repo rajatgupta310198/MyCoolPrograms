@@ -45,18 +45,27 @@ void inOrder(node *Root)
 	 
 	}
 }
-void del_BST(int item)
-{
-	node *t = Root;
-	if(t->item == item)
-	
-}
+ void levelOrder(node *root)
+ {
+ 	 
+ 	queue<node*>q;
+ 	q.push(root);
+ 	while(!q.empty())
+ 	{node *p = q.front();
+         cout<<p->item<<" ";
+         if(p->LC!=NULL)
+          q.push(p->LC);
+         if(p->RC!=NULL)
+          q.push(p->RC);
+         q.pop();
+ 	}
+ }
 int main()
 {
 	insert(5);
 	insert(8);
 	insert(7);
-	inOrder(ROOT);
-	cout<<"\n"<<computeHeight(ROOT);
+	inOrder(Root);
+	levelOrder(Root);
 	return 0;
 }
