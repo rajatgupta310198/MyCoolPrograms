@@ -1,1 +1,1 @@
-All prgorams related to  DSA and other programming problems.
+All prgorams out of my mind.
