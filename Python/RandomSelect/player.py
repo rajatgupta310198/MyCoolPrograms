@@ -18,5 +18,5 @@ class Player:
 
     def modifyPlayer(self,name,score):    # modify records of Player
         f = open('Player/'+name+'.txt','w')
-        f.write(self.name+'\t'+str(self.score))
+        f.write(self.name+'\t'+str(score))
         f.close()
