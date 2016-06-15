@@ -16,7 +16,7 @@ class Player:
             print('Player not exists\n Create new profile')
             return 1;
 
-    def modifyPlayer(self,name,score):    # modify records of Player
-        f = open('Player/'+name+'.txt','w')
+    def modifyPlayer(self,score):    # modify records of Player
+        f = open('Player/'+self.name+'.txt','w')
         f.write(self.name+'\t'+str(score))
         f.close()
