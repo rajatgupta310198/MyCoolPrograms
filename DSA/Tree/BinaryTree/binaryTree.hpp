@@ -4,20 +4,13 @@ template <class T> BinaryTree<T>::BinaryTree()
 {
 	Root = NULL;
 }
-/*template <class T> Node<T>::*putNode(T item)
-{
-       Node<T> *t = new Node<T>;
-       t->data = item;
-       t->LC=t->RC=NULL;
-       return t; 
-}*/
 template <class T> void BinaryTree<T>::insert(T item)
 {     Node<T> *t = new Node<T>;
       t->data = item;
       t->LC=t->RC= NULL;
 	  if(Root==NULL)
 	  {
-	  	Root =t;// putNode(item);
+	  	Root =t; 
 	  }
 	  else {   bool suc= false;
 	  	       Node<T>* temp = Root;
@@ -35,7 +28,7 @@ template <class T> void BinaryTree<T>::insert(T item)
 	  	       		  	 else
 	  	       		  	 	{temp->LC = t;
 							suc= true;
-							}//putNode(item);
+							} 
 	  	       		  }
 	  	       		  if(ch=='R')
 	  	       		  {  
@@ -43,7 +36,7 @@ template <class T> void BinaryTree<T>::insert(T item)
 	  	       		  		temp =temp->RC;
 	  	       		  	 else
 	  	       		  	 {
-	  	       		  	 		temp->RC = t;//putNode(item);
+	  	       		  	 		temp->RC = t;
 	  	       		  	 	    suc= true;
 	  	       		  	 }
 
