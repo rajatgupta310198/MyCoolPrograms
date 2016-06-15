@@ -5,7 +5,7 @@ class Level:
         self.lev = 1
 
     def upLevel(self):
-        sefl.lev = self.lev+1;
+        self.lev = self.lev+1;
 
     def getLevel(self):
         return self.lev
