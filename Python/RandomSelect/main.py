@@ -25,8 +25,10 @@ t = 1
 rang = Level()
 score = 0
 while t and rang.getLevel() <20:
+	j = int(getRandom(rang.getLevel()))
+	print("\t\t ",j)
 	i = int(input('Enter no.:'))
-	if i==getRandom(rang.getLevel()):
+	if i==j:
 		rang.upLevel()
 		score = score + 1
 
@@ -41,6 +43,6 @@ else:
 	print("Loose\nScore is",score)
 
 
-pl.modifyPlayer(name,score)
+pl.modifyPlayer(score)
 
 del pl
