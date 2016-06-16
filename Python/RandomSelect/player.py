@@ -7,14 +7,21 @@ class Player:
     def __init__(self,name):     # new player
         self.name = name;
         self.score = 0
-        f = open('Player/'+name+'.txt','w')
-        f.write(name+'\t'+str(self.score))
-        f.close()
+
+    def getScore(self):
+        return self.score
 
     def oldPlayer(self,name):                   # load old Player
-        if not os.path.exists(os.getcwd()+'/Player/'+name):
-            print('Player not exists\n Create new profile')
-            return 1;
+        # if not os.path.exists(os.getcwd()+'/Player/'+name):
+        #     print('Player not exists\n Create new profile')
+        #     return -1;
+        #
+        # else:
+        f = open('Player/'+self.name+'.txt','r')
+        x = f.read()
+        for i in x.split():
+            if i.isdigit():
+                return i
 
     def modifyPlayer(self,score):    # modify records of Player
         f = open('Player/'+self.name+'.txt','w')
