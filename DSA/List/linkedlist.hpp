@@ -3,7 +3,7 @@
 
 using namespace std;
 template <class T>  LinkedList<T>::LinkedList()
-{
+{ count = 0;
 	head = NULL;
 }
 template <class T> void LinkedList<T>::insert(T n)
@@ -14,7 +14,7 @@ template <class T> void LinkedList<T>::insert(T n)
      	cout<<"\nError in creating Node";
      }
      else
-     {
+     { count++;
      	t->next = head;
      	t->item = n;
      	head = t;
@@ -44,7 +44,7 @@ template <class T> void LinkedList<T>::insertEnd(T n)
         cout<<"\nList is empty !\n";
     }
     else
-    {
+    {		count++;
         node<T> *t = new node<T>;
         node<T> *p = head;
         t->item = n;
@@ -55,7 +55,7 @@ template <class T> void LinkedList<T>::insertEnd(T n)
     }
 }
 template <class T> void LinkedList<T>::insertAfter(T n,T key)
-{   
+{
     if(head==NULL)
     {
         cout<<"\nList is empty !\n";
@@ -64,14 +64,14 @@ template <class T> void LinkedList<T>::insertAfter(T n,T key)
     {
         node<T> *t = new node<T>;
     node<T> *p = head;
-     
+
     t->item = n;
     while(p->item!=key&&p->next!=NULL)
         p=p->next;
     if(p->next==NULL)
         cout<<"\nNo elements matched with "<<key;
     else
-    {
+    {count++;
         t->next = p->next;
         p->next = t;
     }
@@ -80,11 +80,11 @@ template <class T> void LinkedList<T>::insertAfter(T n,T key)
 template <class T> void LinkedList<T>::deleteB()
 {
      if(head==NULL)
-     { 
+     {
         cout<<"\nList is empty !\n";
      }
      else
-     {
+     {count--;
         node<T> *t = head;
         head = t->next;
         delete t;
@@ -107,7 +107,8 @@ template <class T> void LinkedList<T>::deleteEnd()
          }
          p->next = t->next;
          delete t;
-    } 
+				 count--;
+    }
 }
 template <class T> void LinkedList<T>::deleteAny(T key)
 {
@@ -125,12 +126,14 @@ template <class T> void LinkedList<T>::deleteAny(T key)
             {
                 head = head->next;
                 delete t;
+								count--;
                 break;
             }
             else if(t->item==key)
             {
                 p->next= t->next;
                 delete t;
+								count--;
                 break;
             }
             p=t;
@@ -141,14 +144,20 @@ template <class T> void LinkedList<T>::deleteAny(T key)
 
     }
 }
+template <class T> int LinkedList<T>::size()
+{
+	return this->count;
+}
 template <class T> LinkedList<T>::~LinkedList()
 {
     node<T> *t = head;
-    
+
     while(t!=NULL)
     {
         head = head->next;
         delete t;
+				count--;
         t=head->next;
     }
+		count--;
 }
