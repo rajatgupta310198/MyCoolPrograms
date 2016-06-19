@@ -1,20 +1,22 @@
+
 #ifndef LINKED_LIST_H
-#define LINKED_LIST_H 
- 
- #include <iostream>
+#define LINKED_LIST_H
+
+#include <iostream>
 using namespace std;
 template <class T>
-class node{                 
+class node{
     public:
      T item;
      node<T> *next;
 };
 template <class T>
-class LinkedList               
+class LinkedList
 {
 public:
     node<T> *head;
-	LinkedList();                     
+    int count;
+	LinkedList();
 	void insert(T n);
     void insertEnd(T n);
 	void insertAfter(T n,T key);
@@ -22,9 +24,7 @@ public:
     void deleteEnd();
     void deleteAny(T key);
     void display();
+    int size();
 	~LinkedList();
-	
-};
 
-#include "linkedlist.hpp"
-#endif
+};
