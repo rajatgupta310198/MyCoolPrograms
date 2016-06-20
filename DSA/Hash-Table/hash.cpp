@@ -11,6 +11,10 @@ class HashTable{
    hashNode **htable;
    int keys[max_table_size];
    int countk;
+   int hsFunction(int key)
+   {
+     return key%max_table_size;
+   }
  public:
    HashTable()
    {  countk = 0;
@@ -41,10 +45,6 @@ class HashTable{
         htable[hashKey] = t;
       }
    }
-    int hsFunction(int key)
-    {
-      return key%max_table_size;
-    }
     void querr(int key)
     {  int hashKey = hsFunction(key);
       if(this->htable[hashKey]==NULL)
@@ -59,18 +59,26 @@ class HashTable{
         }
       // function for querry
     }
+    int keys_count()
+    {
+      return this->countk;
+    }
 
 };
 int main()
 {
-  hashTable *T = new HashTable();
+  HashTable *T = new HashTable();
   T->insert(1,2);
   T->insert(2,3);
   T->insert(3,3);
   T->insert(4,4);
   T->insert(5,4);
   T->insert(5,2);
-  T->querr(8);
-  
+  T->insert(2,4);
+  T->insert(1,4);
+  T->insert(3,4);
+  T->querr(4);
+  //cout<<"\nNo. of keys :"<<T->keys_count()<<endl;
+
   return 0;
 }
