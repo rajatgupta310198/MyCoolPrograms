@@ -4,20 +4,21 @@ using namespace std;
 struct  hashNode{
     int key;
     int item;
-   hashNode *next;
+    hashNode *next;
 };
-const int max_table_size = 20;
 class HashTable{
    hashNode **htable;
    int keys[max_table_size];
    int countk;
+   const int max_table_size;
    int hsFunction(int key)
    {
      return key%max_table_size;
    }
  public:
    HashTable()
-   {  countk = 0;
+   { countk = 0;
+     max_table_size = 20;
      htable = new hashNode*[max_table_size];
      for(int i=0;i<max_table_size;i++)
        this->htable[i] = NULL;
@@ -63,6 +64,10 @@ class HashTable{
     {
       return this->countk;
     }
+    void copy(HashTable *A)
+    {    
+        // will be updating soon
+    }
 
 };
 int main()
@@ -78,7 +83,7 @@ int main()
   T->insert(1,4);
   T->insert(3,4);
   T->querr(4);
-  //cout<<"\nNo. of keys :"<<T->keys_count()<<endl;
+  
 
   return 0;
 }
