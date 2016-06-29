@@ -22,7 +22,7 @@ public:
        HashTable();
        void insert(T data,T key);
        void querr(T key);
-       void display();
+     //  void print();
 };
 
 #include "hash.hpp"
