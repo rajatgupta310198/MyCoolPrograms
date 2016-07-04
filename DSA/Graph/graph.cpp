@@ -3,7 +3,7 @@
 using namespace std;
 struct vertexNode{
     char label;
-     list<char> adjlist;  //adjency list pointer
+     list<char> adjlist;  //adjency list  
 };
 class Graph{
    int V;
@@ -27,7 +27,12 @@ class Graph{
            if(p->label == src)
            {
              p->adjlist.push_back(dest);
-             break;
+
+           }
+           if(p->label==dest)
+           {
+             p->adjlist.push_back(src);
+
            }
       }
    }
@@ -55,6 +60,26 @@ int main()
     g->addVertex(65+i);
   g->addEdge('A','C');
   g->addEdge('A','D');
+  g->addEdge('B','D');
+  g->addEdge('D','C');
+  g->addEdge('A','B');
+  /*
+    Construct a Graph --
+    B---D----C
+    \  \   |
+     \  \ |
+      \--A
+
+    */
+  cout<<"Adj list A :";
   g->printadjList('A');
+  cout<<"\nAdj list B :";
+  g->printadjList('B');
+  cout<<"\nAdj list C :";
+    g->printadjList('C');
+    cout<<"\nAdj list D :";
+      g->printadjList('D');
+
+      cout<<endl;
   return 0;
 }
