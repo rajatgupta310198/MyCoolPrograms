@@ -85,12 +85,26 @@ void MaxHeap::print()
   else
    cout<<"Empty heap\n";
 }
+void MaxHeap::heapsort()
+{
+  build_max_heap();
+  for(int i=heap_size-1;i>0;i--)
+  {
+    int temp = heaparr[0];
+    heaparr[0] = heaparr[i];
+    heaparr[i] = temp;
+    max_heapify(0);
+  }
+}
 int main()
 { MaxHeap h(5);
   h.insert(1);
   h.insert(2);
   h.insert(5);
   h.insert(3);
+  h.print();
+  cout<<"\n Now performing heapsort...\n";
+  h.heapsort();
   h.print();
   return 0;
 }
